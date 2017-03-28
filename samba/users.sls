@@ -5,7 +5,6 @@ include:
 {% for login, user in salt['pillar.get']('samba:users', {}).items() %}
 {{ login }}:
   user.present:
-    - fullname: {{ login }}
     - password: {{ user.password }}
     - enforce_password: False
 
