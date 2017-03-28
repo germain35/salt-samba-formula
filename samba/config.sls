@@ -8,5 +8,7 @@ samba_config:
     - name: {{ samba.config }}
     - source: {{ samba.config_src }}
     - template: jinja
+    - require:
+      - pkg: samba_server_package
     - watch_in:
-      - service: samba
+      - service: samba_service

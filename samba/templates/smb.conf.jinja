@@ -1,0 +1,10 @@
+{% set samba_sections = pillar.get('samba:sections', {}) %}
+#
+# This file is managed by salt.
+
+{%- for section in samba_sections.keys() %}
+[{{ section }}]
+    {%- for option, value in samba_sections.get(section, {}).items() %}
+    {{ option }} = {{ value }}
+    {%- endfor %}
+{%- endfor%}
