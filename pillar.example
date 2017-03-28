@@ -1,45 +1,75 @@
-samba_sections:
-  global:
-    workgroup: MYGROUP
-    server string: "Samba Server"
-    printcap name: /etc/printcap
-    load printers: yes
-    log file: "/var/log/samba/%m.log"
-    max log size: 50
-    security: user
-    dns proxy: no
-  homes:
-    comment: "Home Directories"
-    browseable: no
-    writeable: yes
-  printers:
-    comment: "All Printers"
-    path: /var/spool/samba
-    browseable: no
-    guest ok: no
-    writeable: no
-    printable: yes
-  sharename:
-    comment: "This is a shared directory"
-    browseable: yes
-    writeable: yes
-    valid users: @sharegroup
-    force group: sharegroup
-    create mask: '0660'
-    directory mask: '2770'
-  user1share:
-    comment: "user1 samba share"
-    path: /usr/somewhere/private
-    valid users: user1
-    create mode: '0660'
-    directory mode: '0770'
-    public: no
-    writable: yes
-    printable: no
-
-
-samba_users:
-  user1:
-    password: user1sambapassword
-  user2:
-    password: user2sambapassword
+samba:
+  server_install: true
+  client_install: false
+  sections:
+    global:
+      security: user
+      workgroup: WORKGROUP
+      server string: "%h Samba Server"
+      dns proxy: no
+      log file: "/var/log/samba/%m.log"
+      max log size: 500
+      syslog: 0
+      panic action: "/usr/share/samba/panic-action %d"
+      server role: standalone server
+      printcap name: /etc/printcap
+      passdb backend: tdbsam
+      obey pam restrictions: yes
+      unix password sync: yes
+      passwd program: "/usr/bin/passwd %u"
+      passwd chat: "*Enter\snew\s*\spassword:* %n\n *Retype\snew\s*\spassword:* %n\n *password\supdated\ssuccessfully* ."
+      pam password change: yes
+      map to guest: bad user
+      socket options: TCP_NODELAY IPTOS_LOWDELAY SO_RCVBUF=131072 SO_SNDBUF=131072
+      min receivefile size:  2048
+      use sendfile: true
+      aio read size: 2048
+      aio write size: 2048
+      write cache size: 1024000
+      read raw: yes
+      write raw:  yes
+      oplocks: yes
+      max xmit: 32768
+      dead time: 15
+      large readwrite: yes
+      load printers: no
+    homes:
+      comment: "Home Directories"
+      browseable: yes
+      writeable: yes
+      create mask: '0644'
+      directory mask: '0755'
+      valid users: '@users'
+    MyBackup:
+      comment: "Backup"
+      path: /backup/mycloud/users/%U
+      browseable: yes
+      writeable: no
+      valid users: '@users'
+    MyUSBDisk:
+      comment: "USB Disk"
+      path: /mnt/MyUSBDisk
+      browseable: yes
+      writeable: yes
+      create mask: '0664'
+      directory mask: '0775'
+      valid users: germaingueutier
+    MyDownloads:
+      comment: "Downloads"
+      path: /Downloads
+      browseable: yes
+      writeable: yes
+      create mask: '0664'
+      directory mask: '0775'
+      valid users: '@users'
+    MyMusic:
+      comment: "Music"
+      path: /Music
+      browseable: yes
+      writeable: no
+      valid users: '@users'
+  users:
+    user1:
+      password: pass
+    user2:
+      password: pass
