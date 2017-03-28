@@ -10,28 +10,28 @@
 	    'default': 'smbd',
 	}, grain='oscodename'),
         'config': '/etc/samba/smb.conf',
-        'config_src': 'salt://samba/templates/smb.conf',
+        'config_src': 'salt://samba/templates/smb.conf.jinja',
     },
     'RedHat': {
         'server': 'samba',
         'client': 'samba',
         'service': 'smb',
         'config': '/etc/samba/smb.conf',
-        'config_src': 'salt://samba/templates/smb.conf',
+        'config_src': 'salt://samba/templates/smb.conf.jinja',
     },
     'CentOS': {
         'server': 'samba',
         'client': 'samba',
         'service': 'smb',
         'config': '/etc/samba/smb.conf',
-        'config_src': 'salt://samba/templates/smb.conf',
+        'config_src': 'salt://samba/templates/smb.conf.jinja',
     },
     'FreeBSD': {
         'server': 'samba44',
         'client': 'samba44',
         'service': 'samba_server',
         'config': '/usr/local/etc/smb4.conf',
-        'config_src': 'salt://samba/templates/smb.conf',
+        'config_src': 'salt://samba/templates/smb.conf.jinja',
     },
 }, merge=salt['grains.filter_by']({
     'Ubuntu': {

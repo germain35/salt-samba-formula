@@ -1,6 +1,6 @@
 samba:
-  server_install: true
-  client_install: false
+  server: true
+  client: false
   sections:
     global:
       security: user
@@ -17,7 +17,7 @@ samba:
       obey pam restrictions: yes
       unix password sync: yes
       passwd program: "/usr/bin/passwd %u"
-      passwd chat: "*Enter\snew\s*\spassword:* %n\n *Retype\snew\s*\spassword:* %n\n *password\supdated\ssuccessfully* ."
+      passwd chat: "*Enter\\snew\\s*\\spassword:* %n\\n *Retype\\snew\\s*\\spassword:* %n\\n *password\\supdated\\ssuccessfully* ."
       pam password change: yes
       map to guest: bad user
       socket options: TCP_NODELAY IPTOS_LOWDELAY SO_RCVBUF=131072 SO_SNDBUF=131072
