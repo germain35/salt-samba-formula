@@ -1,4 +1,7 @@
 
+include:
+  - samba.install
+
 {% for login, user in salt['pillar.get']('samba:users', {}).items() %}
 {{ login }}:
   user.present:
