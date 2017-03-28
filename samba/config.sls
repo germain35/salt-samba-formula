@@ -11,4 +11,4 @@ samba_config:
     - require:
       - pkg: samba_server_package
     - watch_in:
-      - service: samba_service
+      - module: samba_service_reload
