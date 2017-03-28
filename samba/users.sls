@@ -1,5 +1,5 @@
 
-{% for login, user in pillar.get('samba:users', {}).items() %}
+{% for login, user in salt['pillar.get']('samba:users', {}).items() %}
 {{ login }}:
   user.present:
     - fullname: {{ login }}
