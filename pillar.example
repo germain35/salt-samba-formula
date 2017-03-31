@@ -32,7 +32,7 @@ samba:
     homes:
       comment: "Home Directories"
       browseable: 'yes'
-      writeable: 'yes'
+      writable: 'yes'
       create mask: '0644'
       directory mask: '0755'
       valid users: '@users'
@@ -42,13 +42,13 @@ samba:
       comment: "Backup"
       path: /backup/mycloud/users/%U
       browseable: 'yes'
-      writeable: 'no'
+      writable: 'no'
       valid users: '@users'
     MyUSBDisk:
       comment: "USB Disk"
       path: /mnt/MyUSBDisk
       browseable: 'yes'
-      writeable: 'yes'
+      writable: 'yes'
       create mask: '0664'
       directory mask: '0775'
       valid users: germaingueutier
@@ -56,7 +56,7 @@ samba:
       comment: "Downloads"
       path: /Downloads
       browseable: 'yes'
-      writeable: 'yes'
+      writable: 'yes'
       create mask: '0664'
       directory mask: '0775'
       valid users: '@users'
@@ -64,25 +64,25 @@ samba:
       comment: "Music"
       path: /Music
       browseable: 'yes'
-      writeable: 'no'
+      writable: 'no'
       valid users: '@users'
     MyHDMusic:
       comment: "HD Music"
       path: /HDMusic
       browseable: 'yes'
-      writeable: 'no'
+      writable: 'no'
       valid users: '@users'
     MyDSDMusic:
       comment: "DSD Music"
       path: /DSDMusic
       browseable: 'yes'
-      writeable: 'no'
+      writable: 'no'
       valid users: '@users'
     MyCloud:
       comment: "My Cloud"
       path: /srv
       browseable: 'yes'
-      writeable: 'yes'
+      writable: 'yes'
       force user: root
       force group: root
       create mask: '0640'
