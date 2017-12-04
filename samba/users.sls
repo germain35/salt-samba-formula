@@ -1,6 +1,6 @@
 
 include:
-  - samba.install
+  - samba.server
 
 {% for login, user in salt['pillar.get']('samba:users', {}).items() %}
 samba_user_{{ login }}:

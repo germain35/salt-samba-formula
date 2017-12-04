@@ -1,7 +1,12 @@
-{% from "samba/map.jinja" import samba as samba_map with context %}
+{% from "samba/map.jinja" import samba with context %}
 
 include:
-  - samba.install
+  {%- if samba.client %}
+  - samba.client
+  {%- endif %}
+  {%- if samba.server %}
+  - samba.server
   - samba.config
   - samba.users
   - samba.service
+  {%- endif %}
