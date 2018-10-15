@@ -1,24 +1,28 @@
 # -*- coding: utf-8 -*-
 # vim: ft=yaml
 samba:
-    global:
-      workgroup: MYGROUP
-      server string: Samba Server
-      server role: standalone server
-      log file: "/usr/local/samba/var/log.%m"
-      max log size: 50
-      dns proxy: 'no'
-    shares:
-      homes:
-        enabled: true
-        comment: Home Directories
-        browseable: 'no'
-        writable: 'yes'
-      printers:
-        enabled: true
-        comment: All Printers
-        path: /usr/spool/samba
-        browseable: 'no'
-        guest ok: 'no'
-        writable: 'no'
-        printable: 'yes'
+  client: True
+  server: False
+
+  global:
+    workgroup: MYGROUP
+    server string: Samba Server
+    server role: standalone server
+    log file: "/usr/local/samba/var/log.%m"
+    max log size: 50
+    dns proxy: 'no'
+
+  shares:
+    homes:
+      enabled: true
+      comment: Home Directories
+      browseable: 'no'
+      writable: 'yes'
+    printers:
+      enabled: true
+      comment: All Printers
+      path: /usr/spool/samba
+      browseable: 'no'
+      guest ok: 'no'
+      writable: 'no'
+      printable: 'yes'
