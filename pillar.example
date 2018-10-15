@@ -51,7 +51,7 @@ samba:
       writable: 'yes'
       create mask: '0664'
       directory mask: '0775'
-      valid users: germaingueutier
+      valid users: user
     MyDownloads:
       comment: "Downloads"
       path: /Downloads
@@ -87,7 +87,7 @@ samba:
       force group: root
       create mask: '0640'
       directory mask: '0750'
-      valid users: germaingueutier
+      valid users: user
   users:
     user1:
       password: pass
