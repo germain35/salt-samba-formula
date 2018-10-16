@@ -7,7 +7,7 @@
 {% set os_map = salt['grains.filter_by']({
     'Debian': {
         'server_pkg': 'samba',
-        'client_pkg': 'samba-client',
+        'client_pkg': 'smbclient',
         'service': salt['grains.filter_by']({
 	    'lenny': 'samba',
 	    'squeeze': 'samba',
